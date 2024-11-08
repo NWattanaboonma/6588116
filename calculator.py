@@ -3,25 +3,43 @@ class Calculator:
         return a + b
 
     def subtract(self, a, b):
-        return b - a
+        # if(b>a):
+        # i want that number can be negative 
+            # return b - a
+            # i like a-b
+            return a - b
+        # else:
+        #     return a - b
 
-    def multiply(self, a, b):
+    def multiply(self,a, b):
         result = 0
-        for i in range(b+1):
-            result = self.add(result, a)
-        return result
+        if(a>b):
+            for i in range(b):
+                result = self.add(result,a)
+            return result
+        else:
+            for i in range(a):
+                result = self.add(result,b)
+            return result
 
-    def divide(self, a, b):
+    def divide(self, a, b):  
         result = 0
-        while a > b:
-            a = self.subtract(a, b)
+        while a >= b:
+            a = self.subtract(a,b)
             result += 1
         return result
     
     def modulo(self, a, b):
-        while a <= b:
-            a = a-b
-        return a
+        if(a>b):
+            while a >= b:
+                a = self.subtract(a,b)
+            return a
+        elif(a==b):
+            return 0
+        else:
+            return a
+
+        
 
 # Example usage:
 if __name__ == "__main__":
