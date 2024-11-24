@@ -18,14 +18,21 @@ class TestCalculator(unittest.TestCase):
     def test_muti(self):
         self.assertEqual(self.calc.multiply(2, 1), 2)
         self.assertEqual(self.calc.multiply(1, 132), 132)
+        self.assertEqual(self.calc.multiply(-1, 132), -132)
+        self.assertEqual(self.calc.multiply(1, -132), -132)
+        self.assertEqual(self.calc.multiply(-1, -132), 132)
     
     def test_divide(self):
         self.assertEqual(self.calc.divide(2,5),0)
         self.assertEqual(self.calc.divide(1000,3),333)
+        self.assertEqual(self.calc.divide(1000,-3),-333)
+        self.assertEqual(self.calc.divide(-1000,-3),333)
+
 
     def test_mod(self):
         self.assertEqual(self.calc.modulo(4,4),0)
         self.assertEqual(self.calc.modulo(4,5),4)
+        self.assertEqual(self.calc.modulo(4,6),4)
        
 
 
